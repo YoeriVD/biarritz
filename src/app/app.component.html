@@ -5,12 +5,28 @@
       Hi {{ person }}!
     </h4>
   </header>
-
+  <section>
+    <form [formGroup]="expenseForm" (ngSubmit)="addExpense()">
+      <div>
+        <label for="">Description</label>
+        <input type="text" formControlName="description">
+      </div>
+      <div>
+        <label for="">Amount</label>
+        <input type="number" formControlName="amount">
+      </div>
+      <div>
+        <label for="">Date</label>
+        <input type="date" formControlName="date">
+      </div>
+      <button type="submit">add expense</button>
+    </form>
+  </section>
   <section>
     <header>
       <h5>This is my list of expenses</h5>
     </header>
-      <input type="search" placeholder="Search in the list.." [(ngModel)]="searchValue" /> {{searchValue}}
+    <input type="search" placeholder="Search in the list.." [formControl]="search" /> {{searchValue}}
     <table>
       <thead>
         <tr>
@@ -21,7 +37,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let expense of expenses | search : searchValue" [hidden]="expense.hidden" [class.expensive]="expense.amount > 500">
+        <tr *ngFor="let expense of expenses | search : (search.valueChanges | async)" [hidden]="expense.hidden" [class.expensive]="expense.amount > 500">
           <td>{{ expense.description }}</td>
           <td>{{ expense.date | date }}</td>
           <td>{{ expense.amount | currency : 'EUR' }}</td>
@@ -35,7 +51,3 @@
   </section>
 
 </div>
-<button (click)="addExpense()">add example expense</button>
-<code>
-  <pre>{{expenses | json}}</pre>
-</code>

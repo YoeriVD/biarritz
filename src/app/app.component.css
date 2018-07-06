@@ -5,3 +5,7 @@ td,th{
 .expensive{
     color:red;
 }
+
+input.ng-invalid{
+    border: 3px solid red;
+}
