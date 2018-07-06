@@ -7,6 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SearchPipe implements PipeTransform {
 
   transform(values: any[], searchValue: string): any[] {
+    if (!values) return [];
     if (!searchValue) return values;
     // filter the list based on a condition
     return values.filter(item => {
