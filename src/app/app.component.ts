@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { IExpense } from './IExpense';
+import { IExpense } from './expenses/IExpense';
+import { ExpensesService } from './expenses/expenses.service';
 
 
 @Component({
@@ -8,22 +9,27 @@ import { IExpense } from './IExpense';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
   search = new FormControl();
 
   title = 'app';
   person = 'everybody';
   searchValue: string;
-  expenses: IExpense[] = [
-    { description: 'Ticket to Biarritz', amount: 545.45, date: new Date(2018, 6, 28) },
-    { description: 'Taxi from Bilbao to Biarritz', amount: 250.05, date: new Date(2018, 7, 16) },
-    { description: 'Bottle of fien wine', amount: 45.90, date: new Date(2018, 7, 17) },
-  ]
+  get expenses(){
+    return this.service.getExpenses();
+  }
+
+  constructor(private service: ExpensesService) {
+  }
+  ngOnInit(): void {
+    
+  }
   addExpense(expense: IExpense) {
-    this.expenses.push(expense);
+    this.service.addExpense(expense);
   }
 
   deleteExpense(expense: IExpense) {
-    expense.hidden = true;
+    this.service.deleteExpense(expense);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { IExpense } from '../../IExpense';
+import { IExpense } from '../IExpense';
 
 @Component({
   selector: 'app-expense-list',

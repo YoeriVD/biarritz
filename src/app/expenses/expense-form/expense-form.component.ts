@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { IExpense } from '../../IExpense';
+import { IExpense } from '../IExpense';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
