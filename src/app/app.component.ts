@@ -24,8 +24,10 @@ export class AppComponent {
     { description: 'Bottle of fien wine', amount: 45.90, date: new Date(2018, 7, 17) },
   ]
   addExpense() {
-    if (!this.expenseForm.invalid)
+    if (!this.expenseForm.invalid){
       this.expenses.push(this.expenseForm.value);
+      this.expenseForm.reset();
+    }
   }
 
   deleteExpense(expense: IExpense) {
