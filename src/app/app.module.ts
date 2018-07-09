@@ -4,11 +4,11 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SdUiModule } from '@sdworx/sd-components';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoolPipesModule } from './cool-pipes/cool-pipes.module';
 import { HomeModule } from './home/home.module';
-
 registerLocaleData(locale);
 
 @NgModule({
@@ -18,7 +18,8 @@ registerLocaleData(locale);
   imports: [
     BrowserModule,
     FormsModule, ReactiveFormsModule,
-    NgbModule.forRoot(), CoolPipesModule,
+    NgbModule.forRoot(),SdUiModule.forRoot(),
+     CoolPipesModule,
     AppRoutingModule, HomeModule
   ],
   providers: [{

@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "rest" : "json-server --watch expenses.json --port 9999"
+    "rest": "json-server --watch expenses.json --port 9999"
   },
   "private": true,
   "dependencies": {
@@ -22,8 +22,12 @@
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
     "@ng-bootstrap/ng-bootstrap": "^2.2.0",
+    "@sdworx/sd-components": "^6.0.0-61874",
+    "@sdworx/webkit": "^1.10.23",
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
+    "ngx-toastr": "^8.8.0",
+    "oidc-client": "^1.5.2",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },

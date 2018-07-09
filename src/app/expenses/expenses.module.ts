@@ -8,7 +8,7 @@ import { ExpenseFormComponent } from './expense-form/expense-form.component';
 import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { ExpensesHomeComponent } from './expenses-home/expenses-home.component';
 import { ExpensesRoutingModule } from './expenses-routing.module';
-import { ExpensesService } from './expenses.service';
+import { ExpensesService, ExpensesServiceMock } from './expenses.service';
 
 @NgModule({
   imports: [
@@ -16,6 +16,6 @@ import { ExpensesService } from './expenses.service';
   ],
   declarations: [ExpenseListComponent, ExpenseFormComponent, ExpensesHomeComponent],
   exports: [ExpensesHomeComponent],
-  providers: [ExpensesService]
+  providers: [{provide: ExpensesService, useClass: ExpensesServiceMock}]
 })
 export class ExpensesModule { }

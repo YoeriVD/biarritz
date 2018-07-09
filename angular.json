@@ -24,6 +24,8 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/@sdworx/webkit/dist/css/app.css",
+              "node_modules/@sdworx/webkit/dist/css/icons.css",
               "src/styles.css"
             ],
             "scripts": []
