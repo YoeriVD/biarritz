@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { IExpense } from './IExpense';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ExpensesService {
 
   expenses: IExpense[] = [
@@ -17,3 +19,19 @@ export class ExpensesService {
   
   deleteExpense = (expense: IExpense) => expense.hidden = true;
 }
+
+export class ExpensesServiceMock {
+
+  expenses: IExpense[] = [
+    { description: 'Dummy1', amount: 545.45, date: new Date(2018, 6, 28) },
+    { description: 'Dummy2', amount: 250.05, date: new Date(2018, 7, 16) },
+  ]
+  constructor() { }
+
+  getExpenses = () => this.expenses;
+
+  addExpense = (expense: IExpense) => this.expenses.push(expense);
+  
+  deleteExpense = (expense: IExpense) => expense.hidden = true;
+}
+
