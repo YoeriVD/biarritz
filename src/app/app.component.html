@@ -1,17 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
   <header>
-    <h4>
+    <h1>
       Hi {{ person }}!
-    </h4>
+    </h1>
   </header>
 
-  <section>
-    <header>
+  <section class="card">
+    <header class="card-header">
       <h5>This is my list of expenses</h5>
     </header>
-      <input type="search" placeholder="Search in the list.." [(ngModel)]="searchValue" /> {{searchValue}}
-    <table>
+    <div class="card-body">
+      <input class="form-control" type="search" placeholder="Search in the list.." [(ngModel)]="searchValue"  /> {{searchValue}}
+    </div>
+    <table class="table table-hover mb-0">
       <thead>
         <tr>
           <th>description</th>
@@ -34,8 +36,9 @@
 
   </section>
 
+
 </div>
-<button (click)="addExpense()">add example expense</button>
+<button class="btn btn-primary sd-btn" (click)="addExpense()">add example expense</button>
 <code>
   <pre>{{expenses | json}}</pre>
 </code>
