@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { ExpensesService, ExpensesServiceMock } from './expenses/expenses.service';
 import { ExpensesModule } from './expenses/expenses.module';
-import { ReactiveFormsModule } from '../../node_modules/@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CoolPipesModule } from './cool-pipes/cool-pipes.module';
 describe('AppComponent', () => {
     let fixture: ComponentFixture<AppComponent>;
