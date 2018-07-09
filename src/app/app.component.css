@@ -6,6 +6,6 @@ td,th{
     color:red;
 }
 
-input.ng-invalid{
+input.ng-invalid.ng-dirty{
     border: 3px solid red;
 }

@@ -11,9 +11,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class AppComponent {
   search = new FormControl();
   expenseForm = new FormGroup({
-    amount: new FormControl(15.99, [Validators.required]),
-    description: new FormControl('this is a dummy'),
-    date: new FormControl('2018-02-14')
+    amount: new FormControl(null, [Validators.required]),
+    description: new FormControl(null, [Validators.required]),
+    date: new FormControl('2018-02-14', [Validators.required])
   });
   title = 'app';
   person = 'everybody';

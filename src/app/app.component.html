@@ -6,7 +6,7 @@
     </h4>
   </header>
   <section>
-    <form [formGroup]="expenseForm" (ngSubmit)="addExpense()">
+    <form novalidate [formGroup]="expenseForm" (ngSubmit)="addExpense()">
       <div>
         <label for="">Description</label>
         <input type="text" formControlName="description">
