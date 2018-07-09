@@ -9,7 +9,7 @@ import { ExpensesService } from './expenses/expenses.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent  {
 
   search = new FormControl();
 
@@ -21,9 +21,6 @@ export class AppComponent implements OnInit {
   }
 
   constructor(private service: ExpensesService) {
-  }
-  ngOnInit(): void {
-    
   }
   addExpense(expense: IExpense) {
     this.service.addExpense(expense);

@@ -1,37 +1,43 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
+import { shareReplay } from 'rxjs/operators';
+import { ExpensesModule } from './expenses.module';
 import { IExpense } from './IExpense';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: ExpensesModule
 })
 export class ExpensesService {
 
-  expenses: IExpense[] = [
-    { description: 'Ticket to Biarritz', amount: 545.45, date: new Date(2018, 6, 28) },
-    { description: 'Taxi from Bilbao to Biarritz', amount: 250.05, date: new Date(2018, 7, 16) },
-    { description: 'Bottle of fien wine', amount: 45.90, date: new Date(2018, 7, 17) },
-  ]
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getExpenses = () => this.expenses;
+  private readonly api = 'http://localhost:9999/expenses';
+  private expenses$ = this.http
+  .get<IExpense[]>(this.api)
+    .pipe(shareReplay(1))
 
-  addExpense = (expense: IExpense) => this.expenses.push(expense);
-  
+  getExpenses = () => {
+    return this.expenses$;
+  };
+
+  addExpense = (expense: IExpense) => this.http.put(this.api, expense);
+
   deleteExpense = (expense: IExpense) => expense.hidden = true;
 }
 
 export class ExpensesServiceMock {
 
   expenses: IExpense[] = [
-    { description: 'Dummy1', amount: 545.45, date: new Date(2018, 6, 28) },
-    { description: 'Dummy2', amount: 250.05, date: new Date(2018, 7, 16) },
+    { description: 'Ticket to Biarritz', amount: 545.45, date: new Date(2018, 6, 28) },
+    { description: 'Taxi from Bilbao to Biarritz', amount: 250.05, date: new Date(2018, 7, 16) },
   ]
   constructor() { }
 
-  getExpenses = () => this.expenses;
+  getExpenses = () => of(this.expenses);
 
-  addExpense = (expense: IExpense) => this.expenses.push(expense);
-  
+  addExpense = (expense: IExpense) => { this.expenses.push(expense); return of(expense) };
+
   deleteExpense = (expense: IExpense) => expense.hidden = true;
 }
 
