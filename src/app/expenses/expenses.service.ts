@@ -1,29 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-import { shareReplay } from 'rxjs/operators';
-import { ExpensesModule } from './expenses.module';
+import { shareReplay, tap } from 'rxjs/operators';
 import { IExpense } from './IExpense';
 
-@Injectable({
-  providedIn: ExpensesModule
-})
+@Injectable()
 export class ExpensesService {
 
   constructor(private http: HttpClient) { }
 
   private readonly api = 'http://localhost:9999/expenses';
-  private expenses$ = this.http
-  .get<IExpense[]>(this.api)
-    .pipe(shareReplay(1))
+  private expenses$ = this.getExpenses$()
 
   getExpenses = () => {
     return this.expenses$;
   };
 
-  addExpense = (expense: IExpense) => this.http.put(this.api, expense);
+  addExpense = (expense: IExpense) => {
+    return this.http
+    .post(this.api, expense)
+    .pipe(tap(_ => this.expenses$ = this.getExpenses$()));
+  };
 
   deleteExpense = (expense: IExpense) => expense.hidden = true;
+
+  private getExpenses$() {
+    return this.http
+      .get<IExpense[]>(this.api)
+      .pipe(shareReplay(1));
+  }
 }
 
 export class ExpensesServiceMock {
