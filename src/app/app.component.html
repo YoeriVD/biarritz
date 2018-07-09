@@ -9,17 +9,17 @@
     <form novalidate [formGroup]="expenseForm" (ngSubmit)="addExpense()">
       <div>
         <label for="">Description</label>
-        <input type="text" formControlName="description">
+        <input id="description" type="text" formControlName="description">
       </div>
       <div>
         <label for="">Amount</label>
-        <input type="number" formControlName="amount">
+        <input id="amount" type="number" formControlName="amount">
       </div>
       <div>
         <label for="">Date</label>
-        <input type="date" formControlName="date">
+        <input id="date" type="date" formControlName="date">
       </div>
-      <button type="submit">add expense</button>
+      <button type="submit" [disabled]="expenseForm.invalid">add expense</button>
     </form>
   </section>
   <section>
