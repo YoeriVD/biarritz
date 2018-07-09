@@ -1,0 +1,18 @@
+<form class="card-body" [formGroup]="expenseForm" (ngSubmit)="addExpense()">
+  <div class="form-group row">
+    <label class="col-4" for="">Description</label>
+    <input id="description" class="col-8 form-control" required type="text" placeholder="description" formControlName="description">
+    <div class="text-danger invalid-feedback">
+      Please provide a valid description.
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-4" for="">Amount</label>
+    <input id="amount" class="col-8 form-control" type="number" formControlName="amount">
+  </div>
+  <div class="form-group row">
+    <label class="col-4" for="">Date</label>
+    <input id="date" class="col-8 form-control" type="date" formControlName="date">
+  </div>
+  <button class="btn btn-primary sd-btn" type="submit" [disabled]="expenseForm.invalid">add expense</button>
+</form>
