@@ -19,8 +19,10 @@ export class ExpenseFormComponent implements OnInit {
   ngOnInit() {
   }
   addExpense() {
-    if (!this.expenseForm.invalid)
+    if (!this.expenseForm.invalid) {
       this.newExpense.emit(this.expenseForm.value);
+      this.expenseForm.reset();
+    }
   }
 
 }
