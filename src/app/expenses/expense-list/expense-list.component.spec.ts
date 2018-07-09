@@ -22,4 +22,13 @@ describe('ExpenseListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render 2 items',() => {
+    component.list = [
+      {amount: null, description: null, date: null},
+      {amount: null, description: null, date: null},
+    ]
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelectorAll('tbody tr').length).toBe(2);
+  })
 });
