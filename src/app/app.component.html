@@ -1,13 +1,57 @@
-<header>
-    <h1>
-      Hi {{ person }}!
-    </h1>
-  </header>
-<div class="d-flex justify-content-center">
-  <a href="#" class="pr-2" routerLink="">Home</a>
-  <a href="#" class="pr-2" routerLink="expenses">Expenses</a>
-</div>
-
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+<sd-container>
+  <sd-header applicationName="Hi {{ person }}">
+    <div class="ml-5 mr-auto">
+      <ul class="nav navbar-nav nav-active-border bottom flex-row">
+        <li class="nav-item active">
+          <a href="" class="nav-link" routerLink="/home" routerLinkActive="active">
+            <span class="nav-text">Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="" class="nav-link" routerLink="/expenses" routerLinkActive="active">
+            <span class="nav-text">Invite</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <sd-header-navbar>
+      <sd-header-navbar-item>
+        <a class="nav-link">
+          <i class="icons8-inbox pr-2"></i>
+          <span class="label warn up mr-0">3</span>
+        </a>
+      </sd-header-navbar-item>
+      <sd-header-navbar-divider></sd-header-navbar-divider>
+      <sd-header-navbar-item ngbDropdown placement="bottom-right">
+        <a id="dropdownMenuProfile" ngbDropdownToggle class="nav-link text-ellipsis d-flex flex-row align-items-center dropdown-toggle pr-0">
+          <span class="avatar w-32 mr-2 d-none d-md-block" style="overflow: hidden">
+            <img alt="..." src="http://cdn01.cdn.justjared.com/wp-content/uploads/2013/09/kunis-portraits/mila-kunis-olivia-wilde-third-person-tiff-portrait-session-08.jpg">
+          </span>
+          <span class="nav-text block l-h-1x _500 text-muted mr-2 inImpersonateMode" style="text-transform: uppercase;">
+            OLIVIA WILDE
+          </span>
+          <i class="icons8-expand-arrow" style="font-size: 0.875rem;"></i>
+        </a>
+        <div ngbDropdownMenu aria-labelledby="dropdownMenuProfile" style="position:absolute;">
+          <button class="dropdown-item">Profiel</button>
+          <button class="dropdown-item">Afmelden</button>
+        </div>
+      </sd-header-navbar-item>
+    </sd-header-navbar>
+  </sd-header>
+  <sd-body>
+    <sd-sidebar sidebarFoldedMdDown="true">
+      <sd-sidebar-item routerLink="/home" name="Home" navIcon="icons8-home">
+      </sd-sidebar-item>
+      <sd-sidebar-item routerLink="/expenses" name="Expenses" navIcon="icons8-money">
+        <!-- When you have subitems in your navigation use sd-subnav
+              <sd-subnav>                        
+                  <sd-sidebar-item routerLink="/arrow" name="Arrow">
+                  </sd-sidebar-item>
+              </sd-subnav>                 
+              -->
+      </sd-sidebar-item>
+    </sd-sidebar>
+    <router-outlet></router-outlet>
+  </sd-body>
+</sd-container>

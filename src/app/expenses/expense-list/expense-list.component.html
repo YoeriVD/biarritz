@@ -1,4 +1,4 @@
-<table zoom class="table table-hover mb-0">
+<table class="table table-hover mb-0">
   <thead>
     <tr>
       <th>description</th>
@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr zoom="1.05" *ngFor="let expense of list" [hidden]="expense.hidden" [class.expensive]="expense.amount > 500">
+    <tr zoom="1.02" *ngFor="let expense of list" [hidden]="expense.hidden" [class.expensive]="expense.amount > 500">
       <td>{{ expense.description }}</td>
       <td>{{ expense.date | date }}</td>
       <td>{{ expense.amount | currency : 'EUR' }}</td>

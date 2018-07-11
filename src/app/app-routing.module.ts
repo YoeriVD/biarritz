@@ -3,8 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.module';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
-  { path: 'expenses', loadChildren: './expenses/expenses.module#ExpensesModule'}
+  { path: 'home', component: HomeComponent},
+  { path: 'expenses', loadChildren: './expenses/expenses.module#ExpensesModule'},
+  { path: '**', redirectTo: 'home'},
 ];
 
 @NgModule({

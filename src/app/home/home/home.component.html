@@ -1,3 +1,11 @@
-<p>
-  home works!
-</p>
+<sd-body-content [pageLayout]="'cards'">
+    <sd-body-content-header>
+        <sd-page-title title="Home works"></sd-page-title>
+    </sd-body-content-header>
+    <sd-body-content-inner>
+        <ng-content></ng-content>
+    </sd-body-content-inner>
+    <!-- <sd-body-content-footer [class]="''">
+        <span class="pt text-muted">Copyright © 2018 sdworx</span>
+    </sd-body-content-footer> -->
+</sd-body-content>

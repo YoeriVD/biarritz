@@ -5,7 +5,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-expense-form',
   templateUrl: './expense-form.component.html',
-  styleUrls: ['./expense-form.component.css']
+  styleUrls: ['./expense-form.component.css'],
+  exportAs: 'expenseForm'
 })
 export class ExpenseFormComponent implements OnInit {
   @Output() newExpense = new EventEmitter<IExpense>();
