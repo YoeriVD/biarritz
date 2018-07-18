@@ -9,3 +9,38 @@ td,th{
 input.ng-invalid.ng-dirty{
     border: 3px solid red;
 }
+.left-container{
+    left: 0;
+    position: relative;
+    transition: left 0.4s ease-in-out;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    z-index: 1;
+    display: block;
+    box-shadow: -3px 0 4px -1px rgba(200,200,200,0.3);
+    border:0;
+    z-index: 100;
+    background: #fff;
+    left:100%;
+    height: 100%;
+    transition: left 0.4s ease-in-out;
+    
+}
+.animate {
+    left: calc(100% - 33.333333%);
+}
+.animate-table{
+    left: -33.333333%;
+}
+
+:host .modal-dialog {
+    margin:0;
+}
+:host .modal-content {
+    border:0;
+}

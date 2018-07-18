@@ -9,6 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  active = false;
   search = new FormControl();
   expenseForm = new FormGroup({
     amount: new FormControl(null, [Validators.required]),
@@ -26,6 +27,10 @@ export class AppComponent {
   addExpense() {
     if (!this.expenseForm.invalid)
       this.expenses.push(this.expenseForm.value);
+  }
+
+  toggleAddExpense() {
+    this.active = !this.active;
   }
 
   deleteExpense(expense: IExpense) {
