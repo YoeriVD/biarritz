@@ -1,19 +1,314 @@
 <sd-container>
   <sd-header applicationName="Hi {{ person }}">
-    <div class="ml-5 mr-auto">
+    <div class="ml-5">
+      <!-- this does not use sd-header-navbar because the class nav-active-border is not yet being passed in the sdworx web ui kit-->
       <ul class="nav navbar-nav nav-active-border bottom flex-row">
-        <li class="nav-item active">
+        <sd-header-navbar-item>
           <a href="" class="nav-link" routerLink="/home" routerLinkActive="active">
             <span class="nav-text">Home</span>
           </a>
-        </li>
-        <li class="nav-item">
+        </sd-header-navbar-item>
+        <sd-header-navbar-item>
           <a href="" class="nav-link" routerLink="/expenses" routerLinkActive="active">
             <span class="nav-text">Invite</span>
           </a>
-        </li>
+        </sd-header-navbar-item>
       </ul>
     </div>
+    <sd-header-navbar [class]="' ml-auto mr-auto'">
+      <sd-header-navbar-item [class]="'dropdown dropdown-submenu pos-stc'">
+        <a id="dropdownMega" class="nav-link d-flex flex-row align-items-center">
+          <span class="nav mr-2">
+            Mega Menu
+          </span>
+          <i class="icons8-expand-arrow" style="font-size: 0.875rem;"></i>
+        </a>
+        <div class="dropdown-menu pull-down p w-full text-color text-primary-hover ng-scope">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="_600 text-u-c m-y-sm">UI kits
+                <span class="label label-sm success">10</span>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <ul class="nav flex-column l-h-2x">
+                    <li class="hide show" ng-class="{'show': 1}" style="">
+                      <a ui-sref="app.ui.angularstrap" href="#/app/ui/angularstrap">
+                        <span>AngularStrap</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/ui/arrow" ui-sref="app.ui.arrow">
+                        <span>Arrow</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/ui/box" ui-sref="app.ui.box">
+                        <span>Box</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/ui/button" ui-sref="app.ui.button">
+                        <span>Button</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/ui/color" ui-sref="app.ui.color">
+                        <span>Color</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/ui/dropdown" ui-sref="app.ui.dropdown">
+                        <span>Dropdown</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/ui/grid" ui-sref="app.ui.grid">
+                        <span>Grid</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/ui/icons" ui-sref="app.ui.icon">
+                        <span>Icon</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/ui/label" ui-sref="app.ui.label">
+                        <span>Label</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-6">
+                  <ul class="nav flex-column l-h-2x">
+                    <li>
+                      <a href="#/app/ui/list" ui-sref="app.ui.list">
+                        <span>List Group</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/ui/modal" ui-sref="app.ui.modal">
+                        <span>Modal</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/ui/nav" ui-sref="app.ui.nav">
+                        <span>Nav</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/ui/progress" ui-sref="app.ui.progress">
+                        <span>Progress</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/ui/social" ui-sref="app.ui.social">
+                        <span>Social</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/ui/streamline" ui-sref="app.ui.streamline">
+                        <span>Streamline</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/ui/timeline" ui-sref="app.ui.timeline">
+                        <span>Timeline</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/ui/vectormap" ui-sref="app.ui.vectormap">
+                        <span>Vector Map</span>
+                      </a>
+                    </li>
+                    <li class="hide show" ng-class="{'show': 1}" style="">
+                      <a ui-sref="app.googlemap" href="#/app/googlemap">
+                        <span>Google Map</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="_600 text-u-c m-y-sm">Pages
+                <span class="label label-sm">12</span>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <ul class="nav flex-column l-h-2x">
+                    <li>
+                      <a href="#/app/page/profile" ui-sref="app.page.profile">
+                        <span>Profile</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="setting.html" ui-sref="app.page.settings">
+                        <span>Settings</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/page/search" ui-sref="app.page.search">
+                        <span>Search</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/page/faq" ui-sref="app.page.faq">
+                        <span>FAQ</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/page/invoice" ui-sref="app.page.invoice">
+                        <span>Invoice</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/page/price" ui-sref="app.page.price">
+                        <span>Price</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/app/page/blank" ui-sref="app.page.blank">
+                        <span>Blank</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/access/signin" ui-sref="access.signin">
+                        <span>Sign In</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/access/signup" ui-sref="access.signup">
+                        <span>Sign Up</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-6">
+                  <ul class="nav flex-column l-h-2x">
+                    <li>
+                      <a href="#/access/forgot-password" ui-sref="access.forgot-password">
+                        <span>Forgot Password</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/access/lockme" ui-sref="access.lockme">
+                        <span>Lockme Screen</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/404" ui-sref="404">
+                        <span>Error 404</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#/505" ui-sref="505">
+                        <span>Error 505</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="_600 text-u-c m-y-sm">Form</div>
+              <ul class="nav flex-column l-h-2x">
+                <li>
+                  <a href="#/app/form/layout" ui-sref="app.form.layout">
+                    <span>Form Layout</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#/app/form/element" ui-sref="app.form.element">
+                    <span>Form Element</span>
+                  </a>
+                </li>
+                <li class="hide show" ng-class="{'show': 1}" style="">
+                  <a ui-sref="app.form.validation" href="#/app/form/validation">
+                    <span>Form Validation</span>
+                  </a>
+                </li>
+                <li class="hide show" ng-class="{'show': 1}">
+                  <a ui-sref="app.form.select" href="#/app/form/select">
+                    <span>Select</span>
+                  </a>
+                </li>
+                <li class="hide show" ng-class="{'show': 1}">
+                  <a ui-sref="app.form.editor" href="#/app/form/editor">
+                    <span>Editor</span>
+                  </a>
+                </li>
+                <li class="hide show" ng-class="{'show': 1}">
+                  <a ui-sref="app.form.slider" href="#/app/form/slider">
+                    <span>Slider</span>
+                  </a>
+                </li>
+                <li class="hide show" ng-class="{'show': 1}">
+                  <a ui-sref="app.form.tree" href="#/app/form/tree">
+                    <span>Tree</span>
+                  </a>
+                </li>
+                <li class="hide show" ng-class="{'show': 1}">
+                  <a ui-sref="app.form.file-upload" href="#/app/form/file-upload">
+                    <span>File Upload</span>
+                  </a>
+                </li>
+                <li class="hide show" ng-class="{'show': 1}">
+                  <a ui-sref="app.form.image-crop" href="#/app/form/image-crop">
+                    <span>Image Crop</span>
+                  </a>
+                </li>
+                <li class="hide show" ng-class="{'show': 1}">
+                  <a ui-sref="app.form.editable" href="#/app/form/editable">
+                    <span>Editable</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-sm-2">
+              <div class="_600 text-u-c m-y-sm">Table</div>
+              <ul class="nav flex-column l-h-2x">
+                <li>
+                  <a href="#/app/table/static" ui-sref="app.table.static">
+                    <span>Static table</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#/app/table/datatable" ui-sref="app.table.datatable">
+                    <span>Datatable</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#/app/table/footable" ui-sref="app.table.footable">
+                    <span>Footable</span>
+                  </a>
+                </li>
+                <li class="hide show" ng-class="{'show': 1}" style="">
+                  <a ui-sref="app.table.smart" href="#/app/table/smart">
+                    <span>Smart table</span>
+                  </a>
+                </li>
+                <li class="hide show" ng-class="{'show': 1}">
+                  <a ui-sref="app.table.nggrid">
+                    <span>NG Grid</span>
+                  </a>
+                </li>
+                <li class="hide show" ng-class="{'show': 1}">
+                  <a ui-sref="app.table.uigrid" href="#/app/table/uigrid">
+                    <span>UI Grid</span>
+                  </a>
+                </li>
+                <li class="hide show" ng-class="{'show': 1}">
+                  <a ui-sref="app.table.editable" href="#/app/table/editable">
+                    <span>Editable</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </sd-header-navbar-item>
+    </sd-header-navbar>
     <sd-header-navbar>
       <sd-header-navbar-item>
         <a class="nav-link">
